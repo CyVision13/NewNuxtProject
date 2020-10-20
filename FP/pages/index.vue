@@ -30,7 +30,9 @@ export default {
   position: relative;
   padding: 30p;
   box-sizing: border-box;
+  background-image: url('~assets/images/main-page-background.jpg');
   background-position: cover;
+  background-size: cover;
 
 }
 .intro h1 {
