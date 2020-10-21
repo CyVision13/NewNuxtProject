@@ -1,11 +1,14 @@
 <template>
     <section class="post-list">
-        <PostPreview id="1" 
+        <PostPreview 
+        v-for="post in posts"
+        :key="post.id"
+        :id="post.id" 
         :is-admin="isAdmin"
-          thumbnail= "https://image.shutterstock.com/image-vector/abstract-lines-dots-connect-background-600w-1492332182.jpg"
-          title="Hello There!"
+          :thumbnail= "post.thumbnail"
+          :title="post.title"
 
-          previewText="This is my first post"
+          :previewText="post.previewText"
         />
     </section>
 </template>
@@ -21,6 +24,10 @@ props:{
   isAdmin: {
     type:Boolean,
     default:false
+  },
+  posts: {
+    type:Array,
+    required:true
   }
 }
 }
