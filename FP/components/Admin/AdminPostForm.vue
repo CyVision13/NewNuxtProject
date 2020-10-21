@@ -25,11 +25,21 @@ export default {
         AppControlInput,
         AppButton
     },
+    props : {
+        post: {
+            type:Object,
+            required:false
+        }
+    },
     data(){
         return {
-            editedPost :{
-                author:'',
-                thumbnailLink: ''
+            editedPost : this.post 
+            ? {...this.post}
+            : {
+               author :"",
+               title:"",
+               thumbnailLink: "",
+               content: ''
             }
         }
     },

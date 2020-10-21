@@ -1,6 +1,7 @@
 <template>
     <section class="post-list">
         <PostPreview id="1" 
+        :is-admin="isAdmin"
           thumbnail= "https://image.shutterstock.com/image-vector/abstract-lines-dots-connect-background-600w-1492332182.jpg"
           title="Hello There!"
 
@@ -15,6 +16,12 @@ export default {
     
 components: {
     PostPreview
+},
+props:{
+  isAdmin: {
+    type:Boolean,
+    default:false
+  }
 }
 }
 </script>
