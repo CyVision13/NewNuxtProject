@@ -14,9 +14,10 @@ export default {
   components: {
     PostList
   },
-  data(){
-    return {
-      loadedPosts: [
+  asyncData(context, callback){
+    setTimeout(()=> {
+     callback(null, {
+       loadedPosts : [
         {
           id:"1",
           title:"first post",
@@ -35,9 +36,22 @@ export default {
           previewText:"this is our Third post!",
           thumbnail:"https://image.shutterstock.com/image-vector/abstract-lines-dots-connect-background-600w-1492332182.jpg"
         }
+      ] 
+     })
+       
+     
+    },1500)
+  },
+  // data(){
+  //   return {
+  //     loadedPosts: [
+        
          
-      ]
-    }
+  //     ]
+  //   }
+  // },
+  created(){
+    
   }
 }
 </script>
