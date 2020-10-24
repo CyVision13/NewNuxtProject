@@ -34,7 +34,7 @@ export default {
                     thumbnail:"https://image.shutterstock.com/image-vector/abstract-lines-dots-connect-background-600w-1492332182.jpg"
                     
                 }
-            })
+            }
         },1000)
 
     }
