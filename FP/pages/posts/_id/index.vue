@@ -14,6 +14,9 @@
     </div>
 </template>
 
+
+
+
 <script>
 export default {
     asyncData(context, callback) {
@@ -22,7 +25,7 @@ export default {
         // })
         setTimeout(()=>{
             // callback(new Error(), {
-                callback(null), {
+                callback(null, {
                 loadedPost: {
                      
                     id:"1",
@@ -34,12 +37,14 @@ export default {
                     thumbnail:"https://image.shutterstock.com/image-vector/abstract-lines-dots-connect-background-600w-1492332182.jpg"
                     
                 }
-            }
+            })
         },1000)
 
     }
 }
 </script>
+
+
 
 
 <style  scoped>
@@ -95,3 +100,5 @@ export default {
     color: salmon;
 }
 </style>
+
+
