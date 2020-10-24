@@ -17,9 +17,12 @@
 <script>
 export default {
     asyncData(context, callback) {
-        console.log(context);
+        // return new Promise().catch (e =>{
+        //     context.Error(new Error())
+        // })
         setTimeout(()=>{
-            callback(null, {
+            // callback(new Error(), {
+                callback(null), {
                 loadedPost: {
                      
                     id:"1",
