@@ -12,7 +12,13 @@ export default {
       { rel:'stylesheet',href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap"}
     ]
   },
+  loading: {color:'#fa923f', failedColor:'yellow',height:'7px',duration: 5000},
+  // loadingIndicator: {
+  //   name:"circle",
+  //   color: '#fa923f'
+  // },
 
+  
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
   ],
