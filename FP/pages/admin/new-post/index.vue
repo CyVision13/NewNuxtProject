@@ -16,7 +16,7 @@ export default {
     layout :'admin',
     methods:{
         onSubmitted(postData){
-            axios.post('https://vuejs-f4c7c.firebaseio.com/posts.json',postData)
+            axios.post('https://vuejs-f4c7c.firebaseio.com/posts.json',{...postData ,updatedDate: new Date()})
                 .then(result=>{
                     console.log(result);
                 })
