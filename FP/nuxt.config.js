@@ -18,9 +18,10 @@ export default {
   //   color: '#fa923f'
   // },
 
-  
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '~assets/styles/main.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -40,5 +41,9 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+  },
+  dev:true,
+  env:{
+    baseUrl:process.env.BASE_URL || 'https://vuejs-f4c7c.firebaseio.com'
   }
 }
