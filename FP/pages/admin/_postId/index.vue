@@ -13,25 +13,25 @@ export default {
     components:{
         AdminPostForm
     },
-    data(){
-        return {
-            loadedPost:{
-                author: "reza",
-                title:'My Awesome Post',
-                content: "Super amazing thanks for that!",
-                thumbnailLink:"https://image.shutterstock.com/image-vector/abstract-lines-dots-connect-background-600w-1492332182.jpg "
-            }
-        }
+    asyncData(context, callback) {
+        return axios
+        .get("https://vuejs-f4c7c.firebaseio.com/posts/"
+            +context.params.id+
+            '.json'
+            )
+            .then({
+                loadedPost: {...res.data, id: context.params.id}
+            })
+            .catch(e => context.error(e))
     },
     methods: {
         onSubmitted(editedPost){
-            axios.put('https://vuejs-f4c7c.firebaseio.com/posts/' +this.$route.params.postId+'.json',editedPost)
-                .then(result=>{
+            this.$store.dispatch("editPost",editedPost)
+                .then(()=>{
                     this.$router.pish('/admin')
-                })
-                .catch(err=>{
-                    console.log(err);
-                })
+                }
+                    
+                )
         }
     }
 }

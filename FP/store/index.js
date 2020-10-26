@@ -50,7 +50,15 @@ const createStore = ()=>{
                 })
             },
             editPost(vuexContext,editedPost){
-
+                return axios.put('https://vuejs-f4c7c.firebaseio.com/posts/' 
+                +editedPost.id +'.json',
+                editedPost)
+                .then(res=>{
+                    vuexContext.commit('editPost',editedPost)
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
             },
         },getters:{
             loadedPosts(state){
