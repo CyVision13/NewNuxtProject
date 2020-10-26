@@ -10,6 +10,13 @@ const createStore = ()=>{
         mutations: {
             setPosts(state,posts) {
                 state.loadedPosts = posts
+            },
+            addPost(state,post){
+                state.loadedPosts.push(post)
+            },
+            editPost(state,editPost){
+                const postIndex = state.loadedPosts.findIndex(post =>post.id === editPost)
+                state.loadedPosts[postIndex] = editPost
             }
         },
         actions: {
@@ -28,7 +35,23 @@ const createStore = ()=>{
             setPosts(vuexContext,posts){
                 vuexContext.commit('setPosts',posts)
 
-            }
+            },
+            addPost(vuexContext,postData){
+                const createdPost = {...postData ,updatedDate: new Date()}
+                return axios.post('https://vuejs-f4c7c.firebaseio.com/posts.json',
+                    createdPost
+                )
+                .then(result=>{
+                    vuexContext.commit('addPost',{...createdPost,id:result.data.name})
+                    
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
+            },
+            editPost(vuexContext,editedPost){
+
+            },
         },getters:{
             loadedPosts(state){
                 return state.loadedPosts
