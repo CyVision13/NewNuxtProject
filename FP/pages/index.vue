@@ -14,10 +14,35 @@ export default {
   components: {
     PostList
   },
-  computed:{
-    loadedPosts(){
-      return this.$store.getters.loadedPosts
-    }
+  asyncData(context, callback){
+    setTimeout(()=> {
+     callback(null, {
+       loadedPosts : [
+        {
+          id:"1",
+          title:"first post",
+          previewText:"this is our first post!",
+          thumbnail:"https://image.shutterstock.com/image-vector/abstract-lines-dots-connect-background-600w-1492332182.jpg"
+        },
+        {
+          id:"2",
+          title:"Second post",
+          previewText:"this is our Second post!",
+          thumbnail:"https://image.shutterstock.com/image-vector/abstract-lines-dots-connect-background-600w-1492332182.jpg"
+        },
+        {
+          id:"3",
+          title:"Third post",
+          previewText:"this is our Third post!",
+          thumbnail:"https://image.shutterstock.com/image-vector/abstract-lines-dots-connect-background-600w-1492332182.jpg"
+        }
+      ] 
+     })
+       
+       
+       
+     
+    },1500)
   },
   // data(){
   //   return {
@@ -27,7 +52,9 @@ export default {
   //     ]
   //   }
   // },
-  
+  created(){
+    console.log('shit');
+  }
 }
 </script>
 

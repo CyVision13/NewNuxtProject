@@ -1,27 +1,18 @@
 <template>
     <div class="admin-new-post-page">
         <section class="new-post-form">
-            <AdminPostForm @submit="onSubmitted"/>
+            <AdminPostForm/>
         </section>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
 import AdminPostForm from '~/components/Admin/AdminPostForm.vue'
 export default {
     components :{
         AdminPostForm
     },
-    layout :'admin',
-    methods:{
-        onSubmitted(postData){
-            this.$store.dispatch('addPost',postData)
-                .then(()=>{
-                    this.$router.push('/admin')
-                })
-        }
-    }
+    layout :'admin'
 }
 </script>
 
