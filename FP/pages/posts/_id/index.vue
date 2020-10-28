@@ -18,28 +18,16 @@
 
 
 <script>
+import axios from 'axios'
 export default {
     asyncData(context, callback) {
-        // return new Promise().catch (e =>{
-        //     context.Error(new Error())
-        // })
-        setTimeout(()=>{
-            // callback(new Error(), {
-                callback(null, {
-                loadedPost: {
-                     
-                    id:"1",
-                    title:`first post (ID: ${context.route.params.id})`,
-                    previewText:"this is our first post!",
-                    author:"Reza",
-                    updatedDate: new Date(),
-                    content: 'some dummy text ...',
-                    thumbnail:"https://image.shutterstock.com/image-vector/abstract-lines-dots-connect-background-600w-1492332182.jpg"
-                    
-                }
-            })
-        },1000)
-
+        return axios.get('https://vuejs-f4c7c.firebaseio.com/posts/'+context.params.id+'.json')
+        .then(res=>{
+            return {
+                loadedPost: res.data
+            }
+        })
+        .catch(e =>console.log(e))
     }
 }
 </script>
