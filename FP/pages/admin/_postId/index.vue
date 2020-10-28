@@ -34,7 +34,10 @@ export default {
             axios.put('https://vuejs-f4c7c.firebaseio.com/posts/' +
             this.$route.params.postId +
             '.json',editedPost)
-            .then(res => console.log(res) )
+            .then(res => {
+                this.$router.push('/admin')
+                
+            } )
             .catch(e=> console.log(e))
             
         }
