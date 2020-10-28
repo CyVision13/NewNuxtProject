@@ -20,7 +20,7 @@
 <script>
 import axios from 'axios'
 export default {
-    asyncData(context, callback) {
+    asyncData(context) {
         return axios.get('https://vuejs-f4c7c.firebaseio.com/posts/'+context.params.id+'.json')
         .then(res=>{
             return {

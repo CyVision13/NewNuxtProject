@@ -1,25 +1,42 @@
 <template>
     <div class="admin-post-page">
         <section class="update-form">
-            <AdminPostForm :post="loadedPost"/>
+            <AdminPostForm :post="loadedPost" 
+                @submit="onSubmitted"
+            />
         </section>
     </div>
 </template>
 <script>
 import AdminPostForm from '@/components/Admin/AdminPostForm'
+import axios from 'axios'
 export default {
     layout:'admin',
     components:{
         AdminPostForm
     },
-    data(){
-        return {
-            loadedPost:{
-                author: "reza",
-                title:'My Awesome Post',
-                content: "Super amazing thanks for that!",
-                thumbnailLink:"https://image.shutterstock.com/image-vector/abstract-lines-dots-connect-background-600w-1492332182.jpg "
+    asyncData(context){
+        return axios.get(
+            'https://vuejs-f4c7c.firebaseio.com/posts/' +
+            context.params.postId +
+            '.json'
+        )
+        .then(res => {
+            console.log(res);
+            return {
+                loadedPost : res.data
             }
+        })
+        .catch(e=> console.log(e))
+    },
+    methods: {
+        onSubmitted(editedPost){
+            axios.put('https://vuejs-f4c7c.firebaseio.com/posts/' +
+            this.$route.params.postId +
+            '.json',editedPost)
+            .then(res => console.log(res) )
+            .catch(e=> console.log(e))
+            
         }
     }
 }
