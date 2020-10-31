@@ -17,7 +17,7 @@ export default {
     },
     asyncData(context){
         return axios.get(
-            'https://vuejs-f4c7c.firebaseio.com/posts/' +
+            process.env.baseUrl +'/posts/' +
             context.params.postId +
             '.json'
         )
