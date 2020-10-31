@@ -24,22 +24,18 @@ export default {
         .then(res => {
             console.log(res);
             return {
-                loadedPost : res.data
+                loadedPost : {...res.data , id:context.params.postId}
             }
         })
         .catch(e=> console.log(e))
     },
     methods: {
         onSubmitted(editedPost){
-            axios.put('https://vuejs-f4c7c.firebaseio.com/posts/' +
-            this.$route.params.postId +
-            '.json',editedPost)
-            .then(res => {
+             
+            this.$store.dispatch('editPost',editedPost)
+            .then(()=>{
                 this.$router.push('/admin')
-                
-            } )
-            .catch(e=> console.log(e))
-            
+            })
         }
     }
 }
