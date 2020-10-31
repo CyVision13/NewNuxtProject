@@ -47,7 +47,32 @@ export default {
   },
   //overriden by package.json
   dev: true,
-  end:{
+  env:{
     baseUrl:process.env.BASE_URL || 'https://vuejs-f4c7c.firebaseio.com'
+  },
+  // generate: {
+
+  // }
+  // rootDir:'/', // by defualt is /
+  
+  router: {
+    // we can config routes here
+    // base:'/my-app/'
+
+
+
+    // extendRoutes(routes,resolve){
+    //   routes.push({
+    //     path:'*',
+    //     component: resolve(__dirname,'pages/index.vue')
+    //   })
+    // }
+    
+
+    // give active css class to active links
+      linkActiveClass:'active'
+
+
+
   }
 }
