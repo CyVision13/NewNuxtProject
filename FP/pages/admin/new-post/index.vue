@@ -16,11 +16,11 @@ export default {
     layout :'admin',
     methods:{
         onSubmitted(postData){
-            axios.post('https://vuejs-f4c7c.firebaseio.com/posts.json',{...postData,updatedDate:new Date()})
-            .then(result => 
-                this.$router.push('/admin')
+            this.$store.dispatch('addPost',postData)
+            .then(()=>{
+                    this.$route.push('/admin')
+                }
             )
-            .catch(e => console.log(e))
         }
     }
 }

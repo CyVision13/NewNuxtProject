@@ -38,10 +38,15 @@ const createStore = ()=>{
 
             },
             addPost(vuexContext,post){
-                const createdPost =  {...postData,updatedDate:new Date()}
-                axios.post('https://vuejs-f4c7c.firebaseio.com/posts.json',createdPost)
+                const createdPost =  
+                {...post,updatedDate:new Date()
+                }
+                return axios.post('https://vuejs-f4c7c.firebaseio.com/posts.json',createdPost)
                
-            .then(result => console.log(result))
+            .then(result => {
+                vuexContext.commit('addPost',{...createdPost,id:result.data.name})
+                this.$router.push('/admin')
+            })
             .catch(e => console.log(e))
             },
             editedPost(vuexContext,editedPost){
