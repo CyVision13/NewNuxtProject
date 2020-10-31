@@ -28,6 +28,9 @@ export default {
             }
         })
         .catch(e =>console.log(e))
+    },
+    head:{ // meta data and description's section
+        title:'A Blog Post'
     }
 }
 </script>
