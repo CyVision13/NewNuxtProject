@@ -7,9 +7,7 @@
 <script>
   
 export default {
-    components: {
-        PostList
-    },
+    
     
   computed:{
       loadedPosts(){

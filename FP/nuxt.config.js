@@ -15,10 +15,10 @@ export default {
     ]
   },
   loading: { color:'#fa923f', height:'4px',duration:5000},
-  loadingIndicator:{
-    name:'circle',
-    color :'#fa923f'
-  },
+  // loadingIndicator:{
+  //   name:'circle',
+  //   color :'#fa923f'
+  // },
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     

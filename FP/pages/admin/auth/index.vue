@@ -25,10 +25,7 @@
 
 export default {
     layout:'admin',
-    components:{
-        AppControlInput,
-        AppButton
-    },
+    
     name:'AdminAuthPage',
     data(){
         return {
