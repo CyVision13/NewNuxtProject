@@ -33,6 +33,7 @@ const createStore = ()=>{
                     })
                     .catch(e=> console.log(e))
             },
+            
             setPosts(vuexContext,posts){
                 vuexContext.commit('setPosts',posts)
 
