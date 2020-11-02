@@ -43,10 +43,11 @@ const createStore = ()=>{
                 }
                 return axios.post(process.env.baseUrl +'/posts.json',createdPost)
                
+                
             .then(result => {
                 vuexContext.commit('addPost',{...createdPost,id:result.data.name})
                 this.$router.push('/admin')
-                
+
             })
             .catch(e => console.log(e))
             },
