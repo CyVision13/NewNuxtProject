@@ -46,6 +46,7 @@ const createStore = ()=>{
             .then(result => {
                 vuexContext.commit('addPost',{...createdPost,id:result.data.name})
                 this.$router.push('/admin')
+                
             })
             .catch(e => console.log(e))
             },
