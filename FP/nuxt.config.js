@@ -53,6 +53,9 @@ export default {
   // generate: {
 
   // }
+  
+
+  // it must be roote of node modules 
   // rootDir:'/', // by defualt is /
   
   router: {
@@ -74,5 +77,14 @@ export default {
 
 
 
+  },
+
+  // it must include nuxt folders 
+  // srcDir: '/',
+
+  // css for pages
+  transition: {
+    name: 'page',
+    mode:'out-in'
   }
 }
