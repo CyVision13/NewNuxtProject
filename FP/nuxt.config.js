@@ -39,7 +39,11 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    '@nuxtjs/axios'
   ],
+  axios :{
+    baseURL : process.env.BASE_URL || 'https://vuejs-f4c7c.firebaseio.com'
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
