@@ -36,7 +36,7 @@ export default {
     },
     methods:{
         onSubmit(){
-            this.$axios.$post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key='
+            this.$axios.$post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key='
             +process.env.fbAPIKey,{
                 email:this.email,
                 password:this.password,
