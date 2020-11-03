@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 import axios from 'axios'
 import AdminPostForm from '~/components/Admin/AdminPostForm.vue'
 export default {
@@ -18,7 +19,7 @@ export default {
         onSubmitted(postData){
             this.$store.dispatch('addPost',postData)
             .then(()=>{
-                    this.$route.push('/admin')
+                    this.$router.push('/admin')
                 }
             )
         }

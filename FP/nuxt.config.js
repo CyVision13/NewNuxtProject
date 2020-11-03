@@ -80,7 +80,8 @@ export default {
     
 
     // give active css class to active links
-      linkActiveClass:'active'
+      linkActiveClass:'active',
+      middleware:'log'
 
 
 
