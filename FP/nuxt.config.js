@@ -55,7 +55,8 @@ export default {
   //overriden by package.json
   dev: true,
   env:{
-    baseUrl:process.env.BASE_URL || 'https://vuejs-f4c7c.firebaseio.com'
+    baseUrl:process.env.BASE_URL || 'https://vuejs-f4c7c.firebaseio.com',
+    fbAPIKey: 'AIzaSyAKtspyzxZ4a2gr_ViDfM-XpGnIIjD05wQ'
   },
   // generate: {
 
