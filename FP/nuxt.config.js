@@ -42,7 +42,8 @@ export default {
     '@nuxtjs/axios'
   ],
   axios :{
-    baseURL : process.env.BASE_URL || 'https://vuejs-f4c7c.firebaseio.com'
+    baseURL : process.env.BASE_URL || 'https://vuejs-f4c7c.firebaseio.com',
+    credentials:false
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
