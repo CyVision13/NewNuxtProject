@@ -46,7 +46,7 @@ const createStore = ()=>{
                 const createdPost =  
                 {...post,updatedDate:new Date()
                 }
-                return this.$axios.$post('/posts.json',createdPost)
+                return this.$axios.$post('/posts.json?auth='+ vuexContext.state.token,createdPost)
                
                 
             .then(data => {
@@ -59,7 +59,7 @@ const createStore = ()=>{
             editPost(vuexContext,editedPost){
                 return this.$axios.$put('/posts/' +
                 editedPost.id +
-                '.json',editedPost)
+                '.json?auth='+ vuexContext.state.token,editedPost)
                 .then(res => {
                     vuexContext.commit('editPost',editedPost)
                     
