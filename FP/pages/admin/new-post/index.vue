@@ -14,7 +14,7 @@ export default {
     components :{
         AdminPostForm
     },
-    middleware:'auth',
+    middleware:['check-auth','auth'],
     layout :'admin',
     methods:{
         onSubmitted(postData){
