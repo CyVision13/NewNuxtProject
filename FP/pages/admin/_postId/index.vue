@@ -15,6 +15,7 @@ export default {
     components:{
         AdminPostForm
     },
+    middleware:'auth',
     asyncData(context){
         return context.app.$axios.$get(
             '/posts/' +

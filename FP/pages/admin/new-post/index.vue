@@ -14,6 +14,7 @@ export default {
     components :{
         AdminPostForm
     },
+    middleware:'auth',
     layout :'admin',
     methods:{
         onSubmitted(postData){
