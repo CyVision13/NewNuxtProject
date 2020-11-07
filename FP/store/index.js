@@ -129,8 +129,10 @@ const createStore = ()=>{
                 vuexContext.commit('clearToken');
                 Cookie.remove('jwt');
                 Cookie.remove('expirationDate')
-                localStorage.removeItem('token');
-                localStorage.removeItem('rekoneExpiration')
+                if(process.client){
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('rekoneExpiration')
+                }
             }
         },
         getters:{
