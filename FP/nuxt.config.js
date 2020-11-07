@@ -1,3 +1,5 @@
+
+const bodyParser = require('body-parser')
 export default {
 
   mode:'universal',
@@ -95,5 +97,11 @@ export default {
   transition: {
     name: 'fade',
     mode:'out-in'
-  }
+  },
+
+  // its server side middleware like express middlewares that can use before nuxt
+  serverMiddleware:[
+    bodyParser.json(),
+    '~/api'
+  ]
 }
