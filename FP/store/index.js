@@ -86,18 +86,14 @@ const createStore = ()=>{
                 .then(result => {
                     vuexContext.commit('setToken',result.idToken)
                     localStorage.setItem('token',result.idToken)
-                    localStorage.setItem('tokenExpiration',new Date().getTime() + result.expiresIn *1000)
+                    localStorage.setItem('tokenExpiration',new Date().getTime() + Number.parseInt(result.expiresIn )*1000)
                     Cookie.set('jwt',result.idToken)
-                    Cookie.set('expirationDate',new Date().getTime() + result.expiresIn *1000)
-                    vuexContext.dispatch('setlogoutTimer',result.expiresIn*1000)
+                    Cookie.set('expirationDate',new Date().getTime() + Number.parseInt(result.expiresIn )*1000)
+                    
                 })
                 .catch(e => console.log(e))
             },
-            setLogoutTimer(vuexContext,duration){
-                setTimeout(()=>{
-                    vuexContext.commit('clearToken')
-                },duration)
-            },
+            
             initAuth(vuexContext,req){
                 let token;
                 let expirationDate ;
@@ -117,12 +113,15 @@ const createStore = ()=>{
                      token = localStorage.getItem('token')
                      expirationDate = localStorage.getItem('tokenExpiration')
     
-                    if(new Date().getTime() > +expirationDate || !token){ // + for converting to number
-                        return 
-                    }
+                    
+                }
+                console.log('No token or invalid token');
+                if(new Date().getTime() > +expirationDate || !token){ // + for converting to number
+                    vuexContext.commit('clearToken');
+                    return 
                 }
                 
-                vuexContext.dispatch('setLogoutTimer',+expirationDate - new Date().getTime())
+                
                 vuexContext.commit('setToken',token)
             }
         },
