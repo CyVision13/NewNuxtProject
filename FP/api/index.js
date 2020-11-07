@@ -15,7 +15,7 @@ router.use((req,res,next)=>{
 
 
 router.post('/track-data',(req,res)=>{
-    console.log('Stored data',req.body.data)
+    console.log('Stored data!',req.body.data)
     res.status(200).json({
         message: 'success!'
     })
