@@ -113,7 +113,7 @@ const createStore = ()=>{
                     .split('=')[1]
 
                 }
-                else {
+                else if (process.client){
                      token = localStorage.getItem('token')
                      expirationDate = localStorage.getItem('tokenExpiration')
     
