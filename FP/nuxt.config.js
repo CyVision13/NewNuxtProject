@@ -1,4 +1,4 @@
-
+const axios = require('axios')
 const bodyParser = require('body-parser')
 export default {
 
@@ -105,5 +105,6 @@ export default {
   serverMiddleware:[
     bodyParser.json(),
     '~/api'
-  ]
+  ],
+  
 }
