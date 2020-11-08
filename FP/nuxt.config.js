@@ -108,13 +108,16 @@ export default {
   ],
   generate:{
     routes:function(){
-      return axios.get('https://vuejs-f4c7c.firebaseio.com/posts/json')
+      return axios
+      .get('https://vuejs-f4c7c.firebaseio.com/posts.json')
       .then(res=> {
         const routes= []
         for (const key in res.data) {
-          routes.push('/posts/' + key)
+          routes.push({
+            route:'/posts/' + key,
+            payload: { postData : res.data[key]}})
         }
-        return routes
+        return routes;
       })
       
     }
