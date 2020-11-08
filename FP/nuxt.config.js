@@ -106,5 +106,17 @@ export default {
     bodyParser.json(),
     '~/api'
   ],
-  
+  generate:{
+    routes:function(){
+      return axios.get('https://vuejs-f4c7c.firebaseio.com/posts/json')
+      .then(res=> {
+        const routes= []
+        for (const key in res.data) {
+          routes.push('/posts/' + key)
+        }
+        return routes
+      })
+      
+    }
+  }
 }
